@@ -61,7 +61,7 @@ final class CompositionLayoutViewController: UIViewController, UICollectionViewD
             let containerGroup = NSCollectionLayoutGroup.horizontal(
                 layoutSize: NSCollectionLayoutSize(
                     widthDimension: .fractionalWidth(0.8),
-                    heightDimension: .fractionalHeight(0.1)
+                    heightDimension: .fractionalWidth(0.25)
                 ),
                 subitems: [item]
             )
@@ -79,7 +79,7 @@ final class CompositionLayoutViewController: UIViewController, UICollectionViewD
 
             let headerItemSize = NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0),
-                heightDimension: .fractionalHeight(0.4)
+                heightDimension: .fractionalWidth(0.8)
             )
             let headerItem = NSCollectionLayoutBoundarySupplementaryItem(
                 layoutSize: headerItemSize,
