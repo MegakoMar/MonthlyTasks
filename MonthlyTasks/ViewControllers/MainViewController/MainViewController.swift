@@ -96,6 +96,8 @@ extension MainViewController: UICollectionViewDelegate {
             viewController = StarsViewController()
         case .februaryMedium:
             viewController = CompositionLayoutViewController()
+        case .februaryHard:
+            viewController = TimerViewController()
         }
 
         navigationController?.pushViewController(viewController, animated: true)

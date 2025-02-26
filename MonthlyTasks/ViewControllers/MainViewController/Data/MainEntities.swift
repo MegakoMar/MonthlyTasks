@@ -10,6 +10,7 @@ import Foundation
 enum MainEntities: CaseIterable {
     case februaryEasy
     case februaryMedium
+    case februaryHard
 
     var title: String {
         switch self {
@@ -17,6 +18,8 @@ enum MainEntities: CaseIterable {
             return "Февраль Easy"
         case .februaryMedium:
             return "Февраль Medium"
+        case .februaryHard:
+            return "Февраль Hard"
         }
     }
 }
