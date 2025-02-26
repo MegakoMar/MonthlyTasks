@@ -32,8 +32,12 @@ final class MainViewController: UIViewController {
         collectionView.delegate = self
         return collectionView
     }()
+}
 
-    private func configureUI() {
+// MARK: - Layout
+
+private extension MainViewController {
+    func configureUI() {
         title = "Задания"
         view.backgroundColor = .red
 
@@ -41,7 +45,7 @@ final class MainViewController: UIViewController {
         view.addSubview(collectionView)
     }
 
-    private func configureLayout() -> UICollectionViewLayout {
+    func configureLayout() -> UICollectionViewLayout {
         let layout = UICollectionViewCompositionalLayout { (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
             let itemSize = NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1.0),
@@ -58,8 +62,12 @@ final class MainViewController: UIViewController {
         }
         return layout
     }
+}
 
-    private func configureDataSource() {
+// MARK: - DataSource
+
+private extension MainViewController {
+    func configureDataSource() {
         dataSource = UICollectionViewDiffableDataSource<Section, MainEntities>(collectionView: collectionView) { [weak self]
             (collectionView: UICollectionView, indexPath: IndexPath, entity: MainEntities) -> UICollectionViewCell? in
             guard let self else {
@@ -86,6 +94,8 @@ final class MainViewController: UIViewController {
         dataSource?.apply(snapshot, animatingDifferences: false)
     }
 }
+
+// MARK: - UICollectionViewDelegate
 
 extension MainViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

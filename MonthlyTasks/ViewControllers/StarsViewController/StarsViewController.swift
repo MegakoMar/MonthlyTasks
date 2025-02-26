@@ -40,7 +40,18 @@ class StarsViewController: UIViewController {
         return label
     }()
 
-    private func configureUI() {
+    @objc
+    private func changeSlider() {
+        leftStarView.updatePercent(value: sliderView.value)
+        rightStarView.updatePercent(value: sliderView.value)
+        percentLabel.text = "\(Int(sliderView.value)) %"
+    }
+}
+
+// MARK: - Layout
+
+private extension StarsViewController {
+    func configureUI() {
         view.backgroundColor = .white
 
         [starsStackView, sliderView, percentLabel].forEach {
@@ -48,7 +59,7 @@ class StarsViewController: UIViewController {
         }
     }
 
-    private func configureConstraints() {
+    func configureConstraints() {
         starsStackView.translatesAutoresizingMaskIntoConstraints = false
         leftStarView.translatesAutoresizingMaskIntoConstraints = false
         rightStarView.translatesAutoresizingMaskIntoConstraints = false
@@ -69,12 +80,4 @@ class StarsViewController: UIViewController {
             percentLabel.topAnchor.constraint(equalTo: sliderView.bottomAnchor, constant: 20)
         ])
     }
-
-    @objc
-    private func changeSlider() {
-        leftStarView.updatePercent(value: sliderView.value)
-        rightStarView.updatePercent(value: sliderView.value)
-        percentLabel.text = "\(Int(sliderView.value)) %"
-    }
 }
-

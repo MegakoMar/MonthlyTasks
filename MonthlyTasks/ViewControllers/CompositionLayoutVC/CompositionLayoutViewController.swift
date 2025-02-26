@@ -31,13 +31,17 @@ final class CompositionLayoutViewController: UIViewController, UICollectionViewD
         )
         return collectionView
     }()
+}
 
-    private func configureUI() {
+// MARK: - Layout
+
+private extension CompositionLayoutViewController {
+    func configureUI() {
         view.backgroundColor = .white
         view.addSubview(collectionView)
     }
 
-    private func configureConstraints() {
+    func configureConstraints() {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
@@ -48,7 +52,7 @@ final class CompositionLayoutViewController: UIViewController, UICollectionViewD
         ])
     }
 
-    private func configureLayout() -> UICollectionViewLayout {
+    func configureLayout() -> UICollectionViewLayout {
         let layout = UICollectionViewCompositionalLayout { (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
 
             let item = NSCollectionLayoutItem(
@@ -96,8 +100,12 @@ final class CompositionLayoutViewController: UIViewController, UICollectionViewD
 
         return layout
     }
+}
 
-    private func configureDataSource() {
+// MARK: - DataSource
+
+private extension CompositionLayoutViewController {
+    func configureDataSource() {
         let cellsData: [[CLCellData]] = [
             [
                 .init(color: .red),
