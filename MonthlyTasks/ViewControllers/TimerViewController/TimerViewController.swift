@@ -19,7 +19,7 @@ final class TimerViewController: UIViewController {
 
         configureLayout()
 
-        displayValue(for: timer(value: startTime))
+        displayValue(for: timer(value: startTime + 1))
 
         startTimer()
     }
@@ -163,17 +163,17 @@ private extension TimerViewController {
 private extension TimerViewController {
     func displayValue(for timer: (hours: String, minutes: String, seconds: String)) {
         if hoursLabel.text != timer.hours {
-            pushTransition(for: hoursLabel, duration: 0.2)
+            pushTransition(for: hoursLabel, duration: 0.3)
             hoursLabel.text = timer.hours
         }
 
         if minutesLabel.text != timer.minutes {
-            pushTransition(for: minutesLabel, duration: 0.2)
+            pushTransition(for: minutesLabel, duration: 0.3)
             minutesLabel.text = timer.minutes
         }
 
         if secondsLabel.text != timer.seconds {
-            pushTransition(for: secondsLabel, duration: 0.2)
+            pushTransition(for: secondsLabel, duration: 0.3)
             secondsLabel.text = timer.seconds
         }
     }
